@@ -8,11 +8,17 @@ import { RouterOutlet } from "@angular/router";
   styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal("Week ToDo List");
+  protected readonly title = signal("Week ToDo");
 
 protected tasks=signal([
   'create test apps',
   'practice github',
   'study typescript basics'
 ])
+
+protected deleteTask(index:number){
+  this.tasks.update(tasks=>
+    tasks.filter((_,i) => i !==index)
+  );
+}
 }
